@@ -23,22 +23,27 @@
           alt="Metalhed"
         />
       </a>
-      <button
-        class="menu-toggle"
-        id="menu-toggle"
-        aria-expanded="false"
-        aria-controls="site-nav"
-      >
-        <span class="menu-toggle-label">Menu</span>
-        <span class="menu-toggle-bars" aria-hidden="true"></span>
-      </button>
-      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-        <a href="#selected">The work</a>
-        <a href="#archive">Archive</a>
-        <a href="#workshop">Workshop</a>
-        <a href="#about">About</a>
-        <a href="#commissions">Commissions</a>
-      </nav>
+      <div class="header-actions">
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+          <a href="#selected">The work</a>
+          <a href="#archive">Archive</a>
+          <a href="#workshop">Workshop</a>
+          <a href="#about">About</a>
+          <a href="#commissions">Commissions</a>
+        </nav>
+        <a class="cta header-cta" href="#commissions">
+          Contact<span class="header-cta-arrow" aria-hidden="true">↗</span>
+        </a>
+        <button
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="menu-toggle-label">Menu</span>
+          <span class="menu-toggle-bars" aria-hidden="true"></span>
+        </button>
+      </div>
     </header>
 
     <main id="main" tabindex="-1">

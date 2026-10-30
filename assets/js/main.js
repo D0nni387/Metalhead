@@ -206,8 +206,11 @@ const setMenu = (open) => {
 menuToggle.addEventListener("click", () =>
   setMenu(menuToggle.getAttribute("aria-expanded") !== "true"),
 );
-siteNav.addEventListener("click", (e) => {
-  if (e.target.closest("a") && siteNav.classList.contains("open"))
+document.querySelector(".site-header").addEventListener("click", (e) => {
+  if (
+    e.target.closest(".site-nav a, .header-cta") &&
+    siteNav.classList.contains("open")
+  )
     setMenu(false);
 });
 document.addEventListener("keydown", (e) => {

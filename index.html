@@ -1,1 +1,257 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b090c"><meta name="description" content="Metalhed — resin collectible statue and figure painting portfolio."><title>METALHED — Resin. Paint. Obsession.</title><link rel="stylesheet" href="assets/css/style.css"></head><body><header><a href="#top" aria-label="Metalhed home"><img class="logo" src="assets/images/logo.webp" alt="Metalhed"></a><nav aria-label="Primary navigation"><a href="#selected">THE WORK</a><a href="#archive">ARCHIVE</a><a href="#workshop">WORKSHOP</a><a href="#about">ABOUT</a><a href="#commissions">COMMISSIONS</a></nav></header><main id="top"><section class="hero" aria-label="Metalhed featured work"><div class="hero-slides" aria-hidden="true"><img fetchpriority="high" class="hero-slide active" src="assets/images/predator.webp" alt="" style="object-position:center 40%"><img class="hero-slide" src="assets/images/robocop.webp" alt="" style="object-position:center 38%"><img class="hero-slide" src="assets/images/xenomorph.webp" alt="" style="object-position:center 40%"><img class="hero-slide" src="assets/images/blaidd.webp" alt="" style="object-position:center 40%"></div><div class="hero-shade"></div><div class="hero-copy"><div class="eyebrow">// INDEPENDENT FIGURE ARTIST — UK // EST. IN THE SHED</div><h1>RESIN.<br>PAINT.<br><span class="pink">OBSESSION.</span></h1><p>Characters pulled from the screen and dragged into the real world. Big statues. Dirty brushes. Late nights. No assembly-line bullshit.</p><a class="cta" href="#archive">ENTER THE ARCHIVE ↗</a></div></section><section id="selected" class="section wrap"><div class="section-head"><div><div class="eyebrow">01 / FIRST IMPACT</div><h2>SELECTED <span class="pink">WORK</span></h2></div><a class="small-link" href="#archive">EXPLORE FULL ARCHIVE ↗</a></div><div id="featured" class="grid" aria-label="Featured projects"></div></section><section id="archive" class="section archive"><div class="wrap"><div class="eyebrow">02 / THE WHOLE STORY</div><h2>THE <span class="pink">ARCHIVE</span></h2><p class="intro">The heavy hitters up front. The rest of the journey right here — including earlier pieces that show how the work has evolved.</p><div class="filters" role="group" aria-label="Filter archive"><button class="filter active" data-filter="all" aria-pressed="true">ALL WORK</button><button class="filter" data-filter="recent" aria-pressed="false">RECENT</button><button class="filter" data-filter="earlier" aria-pressed="false">EARLIER WORK</button></div><div id="archive-grid" class="grid" aria-live="polite"></div></div></section><section id="workshop" class="section wrap"><div class="eyebrow">03 / BEHIND THE PAINT</div><h2>THE <span class="pink">WORKSHOP</span></h2><div class="split" style="margin-top:25px"><div><p>Resin prints. Assembly. Priming. Airbrush passes. Brushwork. Mistakes, fixes, and the occasional happy accident.</p><p>Open a featured project to see its process photography where available. Work-in-progress shots are kept separate from the finished gallery.</p><a href="#selected" class="cta">SEE THE PROJECTS ↗</a></div><img loading="lazy" src="assets/images/work-in-progress.webp" alt="Work in progress on a biomechanical Xenomorph"></div></section><section id="about" class="section about"><div class="wrap split"><img loading="lazy" src="assets/images/artist-portrait.webp" alt="Metalhed artist portrait"><div><div class="eyebrow">04 / THE PERSON BEHIND THE PAINT</div><h2>MEET <span class="pink">METALHED</span></h2><p>I'm a UK-based collectible figure and statue painter with a weakness for monsters, sci-fi, wrestling icons, fantasy and all things heavy.</p><p>My work spans resin printing, preparation and painting — taking character sculpts and turning them into physical pieces with personality. The archive is part of the story too: no pretending the early work never happened.</p><p>Not a factory. Not a corporate studio. Just a lifelong love of making cool things real.</p></div></div></section><section id="commissions" class="section wrap"><div class="eyebrow">05 / SOMETHING CUSTOM?</div><h2>LET'S MAKE <span class="pink">SOMETHING.</span></h2><p class="intro">Interested in custom pet statues or collectible painting? This site is a portfolio first, but commissions are part of the picture.</p><div class="placeholder"><strong>CONTACT DETAILS COMING SOON</strong><p>This is a placeholder — enquiries are not yet connected. No messages are collected or sent from this preview.</p></div></section></main><footer class="footer"><div class="wrap">© METALHED · RESIN. PAINT. OBSESSION. <span style="float:right;color:var(--pink)">MADE WITH NOISE.</span></div></footer><dialog id="project-dialog" aria-label="Project gallery"><button class="close" id="close-dialog" aria-label="Close project">✕ CLOSE</button><div class="dialog-inner"><img class="dialog-photo" id="dialog-photo" alt=""><div class="dialog-copy"><div class="eyebrow">METALHED / PROJECT</div><h3 id="dialog-title"></h3><p id="dialog-desc"></p><button class="view-full" id="full-view">VIEW IMAGE FULL SCREEN ↗</button><details id="process" class="process"><summary>BEHIND THE SCENES / WIP</summary><p>Process photography — not the finished piece.</p><img id="process-img" alt=""></details><p style="font-size:11px;margin-top:30px">Original sculpts credited to their respective creators where known. Metalhed showcases printing, preparation and painting.</p></div></div></dialog><div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Full screen image" aria-hidden="true"><button id="close-light">✕ CLOSE</button><img id="light-img" alt="Enlarged project photograph"></div><script src="assets/js/main.js"></script></body></html>
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0b090c" />
+    <meta
+      name="description"
+      content="Metalhed — resin collectible statue and figure painting portfolio."
+    />
+    <title>Metalhed — Resin. Paint. Obsession.</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a href="#main" aria-label="Metalhed home">
+        <img
+          class="logo"
+          src="assets/images/logo.webp"
+          width="820"
+          height="391"
+          alt="Metalhed"
+        />
+      </a>
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span class="menu-toggle-label">Menu</span>
+        <span class="menu-toggle-bars" aria-hidden="true"></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="#selected">The work</a>
+        <a href="#archive">Archive</a>
+        <a href="#workshop">Workshop</a>
+        <a href="#about">About</a>
+        <a href="#commissions">Commissions</a>
+      </nav>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section class="hero" aria-label="Metalhed featured work">
+        <div class="hero-slides" aria-hidden="true">
+          <img
+            class="hero-slide active"
+            src="assets/images/predator.webp"
+            alt=""
+            fetchpriority="high"
+          />
+          <img
+            class="hero-slide hero-slide--raised"
+            src="assets/images/robocop.webp"
+            alt=""
+          />
+          <img class="hero-slide" src="assets/images/xenomorph.webp" alt="" />
+          <img class="hero-slide" src="assets/images/blaidd.webp" alt="" />
+        </div>
+        <div class="hero-shade"></div>
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span aria-hidden="true">//</span> Independent figure artist — UK
+            <span aria-hidden="true">//</span> Est. in the shed
+          </div>
+          <h1>Resin.<br />Paint.<br /><span class="pink">Obsession.</span></h1>
+          <p>
+            Characters pulled from the screen and dragged into the real world.
+            Big statues. Dirty brushes. Late nights. No assembly-line bullshit.
+          </p>
+          <a class="cta" href="#archive">Enter the archive ↗</a>
+        </div>
+      </section>
+
+      <section id="selected" class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">01 / First impact</div>
+              <h2>Selected <span class="pink">work</span></h2>
+            </div>
+            <a class="small-link" href="#archive">Explore full archive ↗</a>
+          </div>
+          <div id="featured" class="grid" aria-label="Featured projects"></div>
+        </div>
+      </section>
+
+      <section id="archive" class="section archive">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">02 / The whole story</div>
+              <h2>The <span class="pink">archive</span></h2>
+            </div>
+          </div>
+          <p class="intro">
+            The heavy hitters up front. The rest of the journey right here —
+            including earlier pieces that show how the work has evolved.
+          </p>
+          <div class="filters" role="group" aria-label="Filter archive">
+            <button class="filter active" data-filter="all" aria-pressed="true">
+              All work
+            </button>
+            <button class="filter" data-filter="recent" aria-pressed="false">
+              Recent
+            </button>
+            <button class="filter" data-filter="earlier" aria-pressed="false">
+              Earlier work
+            </button>
+          </div>
+          <p class="visually-hidden" id="archive-status" aria-live="polite"></p>
+          <div id="archive-grid" class="grid"></div>
+        </div>
+      </section>
+
+      <section id="workshop" class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">03 / Behind the paint</div>
+              <h2>The <span class="pink">workshop</span></h2>
+            </div>
+          </div>
+          <div class="split">
+            <div>
+              <p>
+                Resin prints. Assembly. Priming. Airbrush passes. Brushwork.
+                Mistakes, fixes, and the occasional happy accident.
+              </p>
+              <p>
+                Open a featured project to see its process photography where
+                available. Work-in-progress shots are kept separate from the
+                finished gallery.
+              </p>
+              <a href="#selected" class="cta">See the projects ↗</a>
+            </div>
+            <img
+              loading="lazy"
+              src="assets/images/work-in-progress.webp"
+              width="845"
+              height="1500"
+              alt="Work in progress on a biomechanical Xenomorph"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section about">
+        <div class="wrap split">
+          <img
+            loading="lazy"
+            src="assets/images/artist-portrait.webp"
+            width="829"
+            height="1200"
+            alt="Metalhed artist portrait"
+          />
+          <div>
+            <div class="section-head">
+              <div>
+                <div class="eyebrow">04 / The person behind the paint</div>
+                <h2>Meet <span class="pink">Metalhed</span></h2>
+              </div>
+            </div>
+            <p>
+              I'm a UK-based collectible figure and statue painter with a
+              weakness for monsters, sci-fi, wrestling icons, fantasy and all
+              things heavy.
+            </p>
+            <p>
+              My work spans resin printing, preparation and painting — taking
+              character sculpts and turning them into physical pieces with
+              personality. The archive is part of the story too: no pretending
+              the early work never happened.
+            </p>
+            <p>
+              Not a factory. Not a corporate studio. Just a lifelong love of
+              making cool things real.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="commissions" class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">05 / Something custom?</div>
+              <h2>Let's make <span class="pink">something.</span></h2>
+            </div>
+          </div>
+          <p class="intro">
+            Interested in custom pet statues or collectible painting? This site
+            is a portfolio first, but commissions are part of the picture.
+          </p>
+          <div class="placeholder">
+            <strong>Contact details coming soon</strong>
+            <p>
+              This is a placeholder — enquiries are not yet connected. No
+              messages are collected or sent from this preview.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <span>© Metalhed · Resin. Paint. Obsession.</span>
+        <span class="footer-tag">Made with noise.</span>
+      </div>
+    </footer>
+
+    <dialog
+      class="project-dialog"
+      id="project-dialog"
+      aria-labelledby="dialog-title"
+    >
+      <button class="close" id="close-dialog" aria-label="Close project">
+        ✕ Close
+      </button>
+      <div class="dialog-inner">
+        <img class="dialog-photo" id="dialog-photo" alt="" />
+        <div class="dialog-copy">
+          <div class="eyebrow">Metalhed / Project</div>
+          <h3 id="dialog-title"></h3>
+          <p id="dialog-desc"></p>
+          <button class="view-full" id="full-view">
+            View image full screen ↗
+          </button>
+          <details id="process" class="process">
+            <summary>Behind the scenes / WIP</summary>
+            <p>Process photography — not the finished piece.</p>
+            <img id="process-img" alt="" />
+          </details>
+          <p class="dialog-credit">
+            Original sculpts credited to their respective creators where known.
+            Metalhed showcases printing, preparation and painting.
+          </p>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Full screen image">
+      <button
+        class="close"
+        id="close-light"
+        aria-label="Close full screen image"
+      >
+        ✕ Close
+      </button>
+      <img id="light-img" alt="" />
+    </dialog>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

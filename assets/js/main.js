@@ -161,18 +161,18 @@ const projects = [
   },
 ];
 const featured = document.getElementById("featured"),
-  archive = document.getElementById("archive-grid");
+  archive = document.getElementById("archive-grid"),
+  archiveStatus = document.getElementById("archive-status");
 const card = (p) =>
-  `<button class="tile" data-project="${p.id}" aria-label="View ${p.name}"><figure><img loading="lazy" src="${p.image}" alt="Painted ${p.name} collectible"></figure><strong>${p.name}</strong></button>`;
+  `<button class="tile" data-project="${p.id}" aria-label="View ${p.name}"><figure><img loading="lazy" src="${p.image}" alt=""></figure><strong>${p.name}</strong></button>`;
 featured.innerHTML = projects
   .filter((p) => p.featured)
   .map(card)
   .join("");
 function renderArchive(filter = "all") {
-  archive.innerHTML = projects
-    .filter((p) => filter === "all" || p.era === filter)
-    .map(card)
-    .join("");
+  const shown = projects.filter((p) => filter === "all" || p.era === filter);
+  archive.innerHTML = shown.map(card).join("");
+  return shown.length;
 }
 renderArchive();
 document.querySelectorAll("[data-filter]").forEach((b) =>
@@ -183,18 +183,53 @@ document.querySelectorAll("[data-filter]").forEach((b) =>
     });
     b.classList.add("active");
     b.setAttribute("aria-pressed", "true");
-    renderArchive(b.dataset.filter);
+    const count = renderArchive(b.dataset.filter);
+    archiveStatus.textContent = `Showing ${count} ${count === 1 ? "piece" : "pieces"}`;
   }),
 );
+
+const menuToggle = document.getElementById("menu-toggle");
+const siteNav = document.getElementById("site-nav");
+const menuLabel = menuToggle.querySelector(".menu-toggle-label");
+const pageRegions = [
+  document.querySelector("main"),
+  document.querySelector("footer"),
+];
+const setMenu = (open) => {
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuLabel.textContent = open ? "Close" : "Menu";
+  siteNav.classList.toggle("open", open);
+  document.documentElement.classList.toggle("menu-open", open);
+  pageRegions.forEach((el) => (el.inert = open));
+  if (open) siteNav.querySelector("a").focus();
+};
+menuToggle.addEventListener("click", () =>
+  setMenu(menuToggle.getAttribute("aria-expanded") !== "true"),
+);
+siteNav.addEventListener("click", (e) => {
+  if (e.target.closest("a") && siteNav.classList.contains("open"))
+    setMenu(false);
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && siteNav.classList.contains("open")) {
+    setMenu(false);
+    menuToggle.focus();
+  }
+});
+window.matchMedia("(min-width: 901px)").addEventListener("change", (e) => {
+  if (e.matches) setMenu(false);
+});
+
 const dlg = document.getElementById("project-dialog");
+const dialogPhoto = document.getElementById("dialog-photo");
 let previousFocus = null;
 document.addEventListener("click", (e) => {
   const trigger = e.target.closest("[data-project]");
   if (!trigger) return;
   const p = projects.find((x) => x.id === trigger.dataset.project);
   if (!p) return;
-  document.getElementById("dialog-photo").src = p.image;
-  document.getElementById("dialog-photo").alt = p.name;
+  dialogPhoto.src = p.image;
+  dialogPhoto.alt = p.name;
   document.getElementById("dialog-title").textContent = p.name;
   document.getElementById("dialog-desc").textContent = p.description;
   const proc = document.getElementById("process");
@@ -212,33 +247,21 @@ dlg.addEventListener("close", () => {
 dlg.addEventListener("click", (e) => {
   if (e.target === dlg) dlg.close();
 });
+
 const light = document.getElementById("lightbox");
-const closeLight = () => {
-  light.classList.remove("open");
-  light.setAttribute("aria-hidden", "true");
-  document.getElementById("full-view").focus();
+const lightImg = document.getElementById("light-img");
+const fullView = document.getElementById("full-view");
+fullView.onclick = () => {
+  lightImg.src = dialogPhoto.src;
+  lightImg.alt = dialogPhoto.alt;
+  light.showModal();
 };
-document.getElementById("full-view").onclick = () => {
-  document.getElementById("light-img").src =
-    document.getElementById("dialog-photo").src;
-  light.classList.add("open");
-  light.setAttribute("aria-hidden", "false");
-  document.getElementById("close-light").focus();
-};
-document.getElementById("close-light").onclick = closeLight;
+document.getElementById("close-light").onclick = () => light.close();
+light.addEventListener("close", () => fullView.focus());
 light.addEventListener("click", (e) => {
-  if (e.target === light) closeLight();
+  if (e.target === light) light.close();
 });
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && light.classList.contains("open")) {
-    e.stopPropagation();
-    closeLight();
-  }
-  if (e.key === "Tab" && light.classList.contains("open")) {
-    e.preventDefault();
-    document.getElementById("close-light").focus();
-  }
-});
+
 (() => {
   const slides = [...document.querySelectorAll(".hero-slide")];
   if (

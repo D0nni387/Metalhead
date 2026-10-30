@@ -262,6 +262,74 @@ light.addEventListener("click", (e) => {
   if (e.target === light) light.close();
 });
 
+const contactForm = document.getElementById("contact-form");
+const formStatus = document.getElementById("form-status");
+const contactFields = {
+  name: "Add your name so I know who to reply to.",
+  email: "Add an email address I can reply to, like name@example.com.",
+  message: "Tell me a little about what you have in mind.",
+};
+const setStatus = (text) => {
+  formStatus.textContent = text;
+  formStatus.focus();
+};
+const validateField = (input) => {
+  const error = document.getElementById(`${input.id}-error`);
+  const valid = input.value.trim() !== "" && input.checkValidity();
+  input.setAttribute("aria-invalid", String(!valid));
+  error.textContent = valid ? "" : contactFields[input.name];
+  return valid;
+};
+contactForm.noValidate = true;
+Object.keys(contactFields).forEach((name) => {
+  const input = contactForm.elements[name];
+  input.addEventListener("blur", () => {
+    if (input.getAttribute("aria-invalid")) validateField(input);
+  });
+});
+contactForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const invalid = Object.keys(contactFields)
+    .map((name) => contactForm.elements[name])
+    .filter((input) => !validateField(input));
+  if (invalid.length) {
+    invalid[0].focus();
+    return;
+  }
+  const submit = contactForm.querySelector('[type="submit"]');
+  submit.disabled = true;
+  submit.textContent = "Sending…";
+  formStatus.textContent = "";
+  try {
+    const res = await fetch(
+      contactForm.action.replace("formsubmit.co/", "formsubmit.co/ajax/"),
+      {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(contactForm),
+      },
+    );
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || String(data.success) !== "true")
+      throw new Error(data.message);
+    contactForm.reset();
+    Object.keys(contactFields).forEach((name) =>
+      contactForm.elements[name].removeAttribute("aria-invalid"),
+    );
+    setStatus("Message sent. Thanks — I'll get back to you soon.");
+  } catch {
+    setStatus(
+      "That didn't send. Please try again, or email metalhed@metalhed.co.uk directly.",
+    );
+  } finally {
+    submit.disabled = false;
+    submit.textContent = "Send it ↗";
+  }
+});
+if (new URLSearchParams(location.search).has("sent")) {
+  formStatus.textContent = "Message sent. Thanks — I'll get back to you soon.";
+}
+
 (() => {
   const slides = [...document.querySelectorAll(".hero-slide")];
   if (

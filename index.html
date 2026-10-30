@@ -193,12 +193,144 @@
             Interested in custom pet statues or collectible painting? This site
             is a portfolio first, but commissions are part of the picture.
           </p>
-          <div class="placeholder">
-            <strong>Contact details coming soon</strong>
-            <p>
-              This is a placeholder — enquiries are not yet connected. No
-              messages are collected or sent from this preview.
-            </p>
+          <div class="contact">
+            <form
+              class="contact-form"
+              id="contact-form"
+              action="https://formsubmit.co/metalhed@metalhed.co.uk"
+              method="POST"
+            >
+              <div class="contact-form-bar" aria-hidden="true">
+                <span>Commission enquiry</span><span>// Form 05</span>
+              </div>
+              <input
+                type="hidden"
+                name="_subject"
+                value="New enquiry from metalhed site"
+              />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input
+                type="hidden"
+                name="_next"
+                value="https://d0nni387.github.io/Metalhead/?sent=1#commissions"
+              />
+              <div class="honeypot" aria-hidden="true">
+                <label for="contact-honey">Leave this empty</label>
+                <input
+                  type="text"
+                  id="contact-honey"
+                  name="_honey"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="contact-name">Name</label>
+                  <input
+                    type="text"
+                    id="contact-name"
+                    name="name"
+                    autocomplete="name"
+                    required
+                    aria-describedby="contact-name-error"
+                  />
+                  <p class="field-error" id="contact-name-error"></p>
+                </div>
+                <div class="field">
+                  <label for="contact-email">Email</label>
+                  <input
+                    type="email"
+                    id="contact-email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                    aria-describedby="contact-email-error"
+                  />
+                  <p class="field-error" id="contact-email-error"></p>
+                </div>
+              </div>
+
+              <fieldset class="field choice">
+                <legend>What are you after?</legend>
+                <div class="choice-options">
+                  <label class="chip">
+                    <input
+                      type="radio"
+                      name="enquiry"
+                      value="Pet statue"
+                      checked
+                    />
+                    <span>Pet statue</span>
+                  </label>
+                  <label class="chip">
+                    <input
+                      type="radio"
+                      name="enquiry"
+                      value="Collectible painting"
+                    />
+                    <span>Collectible painting</span>
+                  </label>
+                  <label class="chip">
+                    <input type="radio" name="enquiry" value="Something else" />
+                    <span>Something else</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="field">
+                <label for="contact-message">Tell me about it</label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  rows="6"
+                  required
+                  aria-describedby="contact-message-hint contact-message-error"
+                ></textarea>
+                <p class="field-hint" id="contact-message-hint">
+                  The character or pet, the scale, any reference photos you have
+                  and when you'd like it by.
+                </p>
+                <p class="field-error" id="contact-message-error"></p>
+              </div>
+
+              <div class="form-foot">
+                <button class="cta" type="submit">Send it ↗</button>
+                <p class="form-note">
+                  Sent by FormSubmit straight to the Metalhed inbox. Your
+                  details are only used to reply.
+                </p>
+              </div>
+              <p
+                class="form-status"
+                id="form-status"
+                role="status"
+                tabindex="-1"
+              ></p>
+            </form>
+
+            <aside class="contact-direct" aria-labelledby="direct-title">
+              <h3 id="direct-title" class="direct-title">
+                Or reach out direct
+              </h3>
+              <a class="direct-link" href="mailto:metalhed@metalhed.co.uk">
+                <span class="direct-kind">Email</span>
+                <span class="direct-value">metalhed@<wbr />metalhed.co.uk</span>
+              </a>
+              <a
+                class="direct-link"
+                href="https://linktr.ee/Metalhed"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="direct-kind">Linktree</span>
+                <span class="direct-value">linktr.ee/<wbr />Metalhed ↗</span>
+                <span class="visually-hidden">(opens in a new tab)</span>
+              </a>
+              <p>Socials and everything else Metalhed lives on the Linktree.</p>
+            </aside>
           </div>
         </div>
       </section>
@@ -207,6 +339,14 @@
     <footer class="footer">
       <div class="wrap">
         <span>© Metalhed · Resin. Paint. Obsession.</span>
+        <span class="footer-links">
+          <a href="mailto:metalhed@metalhed.co.uk">Email</a>
+          <a href="https://linktr.ee/Metalhed" target="_blank" rel="noopener"
+            >Linktree ↗<span class="visually-hidden">
+              (opens in a new tab)</span
+            ></a
+          >
+        </span>
         <span class="footer-tag">Made with noise.</span>
       </div>
     </footer>

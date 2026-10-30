@@ -301,14 +301,13 @@ contactForm.addEventListener("submit", async (e) => {
   submit.textContent = "Sending…";
   formStatus.textContent = "";
   try {
-    const res = await fetch(
-      contactForm.action.replace("formsubmit.co/", "formsubmit.co/ajax/"),
-      {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: new FormData(contactForm),
-      },
-    );
+    const body = new FormData(contactForm);
+    body.delete("redirect");
+    const res = await fetch(contactForm.action, {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body,
+    });
     const data = await res.json().catch(() => ({}));
     if (!res.ok || String(data.success) !== "true")
       throw new Error(data.message);

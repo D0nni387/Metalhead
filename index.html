@@ -197,7 +197,7 @@
             <form
               class="contact-form"
               id="contact-form"
-              action="https://formsubmit.co/metalhed@metalhed.co.uk"
+              action="https://api.web3forms.com/submit"
               method="POST"
             >
               <div class="contact-form-bar" aria-hidden="true">
@@ -205,26 +205,28 @@
               </div>
               <input
                 type="hidden"
-                name="_subject"
-                value="New enquiry from metalhed site"
+                name="access_key"
+                value="6b593119-f299-4214-bb6a-b3b0cc3ee6f7"
               />
-              <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_captcha" value="false" />
               <input
                 type="hidden"
-                name="_next"
+                name="subject"
+                value="New enquiry from the Metalhed site"
+              />
+              <input type="hidden" name="from_name" value="Metalhed site" />
+              <input
+                type="hidden"
+                name="redirect"
                 value="https://d0nni387.github.io/Metalhead/?sent=1#commissions"
               />
-              <div class="honeypot" aria-hidden="true">
-                <label for="contact-honey">Leave this empty</label>
-                <input
-                  type="text"
-                  id="contact-honey"
-                  name="_honey"
-                  tabindex="-1"
-                  autocomplete="off"
-                />
-              </div>
+              <input
+                type="checkbox"
+                class="honeypot"
+                name="botcheck"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+              />
 
               <div class="field-row">
                 <div class="field">
@@ -299,8 +301,8 @@
               <div class="form-foot">
                 <button class="cta" type="submit">Send it ↗</button>
                 <p class="form-note">
-                  Sent by FormSubmit straight to the Metalhed inbox. Your
-                  details are only used to reply.
+                  Sent by Web3Forms straight to the Metalhed inbox. Your details
+                  are only used to reply.
                 </p>
               </div>
               <p

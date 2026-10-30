@@ -2,4 +2,16 @@
 
 Resin collectible statue and figure painting portfolio.
 
-Single-page site: `index.html`, with photos in `images/`. Serve the folder (e.g. `python3 -m http.server`) or open `index.html` directly. Base: Metalhed V8.2 mobile preview.
+Live preview: https://d0nni387.github.io/Metalhead/
+
+## Structure
+
+```
+index.html
+assets/
+  css/style.css
+  js/main.js
+  images/*.webp
+```
+
+Run locally with `python3 -m http.server` from the repo root. Base: Metalhed V8.2 mobile preview.

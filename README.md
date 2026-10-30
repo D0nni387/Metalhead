@@ -2,7 +2,7 @@
 
 Resin collectible statue and figure painting portfolio.
 
-Live preview: https://d0nni387.github.io/Metalhead/
+Live: https://metalhed.co.uk (hosted on Yarnham via Dokploy, auto-deploys on push to `main`)
 
 ## Structure
 

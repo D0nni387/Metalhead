@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
-
 :root {
   --bg: #0b090c;
   --bg-deep: #070607;
@@ -16,8 +14,8 @@
   --pink: #ff2aa4;
   --on-pink: #130810;
 
-  --font-display: "Barlow Condensed", Impact, sans-serif;
-  --font-body: "IBM Plex Mono", monospace;
+  --font-display: var(--font-barlow-condensed), Impact, sans-serif;
+  --font-body: var(--font-ibm-plex-mono), monospace;
 
   --gutter: clamp(20px, 4vw, 64px);
   --content: 1320px;
@@ -833,7 +831,7 @@ main {
   text-decoration-color: var(--pink);
 }
 
-/* Project dialog */
+/* Dialogs */
 
 dialog {
   padding: 0;
@@ -846,41 +844,7 @@ dialog::backdrop {
   background: var(--overlay);
 }
 
-.project-dialog {
-  width: min(1050px, 95vw);
-  max-height: 92dvh;
-}
-
-.dialog-inner {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  min-width: 0;
-}
-
-.dialog-photo {
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  max-height: 86dvh;
-  object-fit: contain;
-  background: var(--bg-deep);
-}
-
-.dialog-copy {
-  max-height: 86dvh;
-  padding: clamp(22px, 3vw, 40px);
-  overflow: auto;
-}
-
-.dialog-copy h3 {
-  margin-block: 14px 20px;
-}
-
-.dialog-copy p {
-  line-height: 1.7;
-}
-
-.dialog-credit {
+.project-credit {
   margin-top: 30px;
   font-size: 12px;
 }
@@ -940,6 +904,185 @@ dialog::backdrop {
   padding: 9px 14px;
 }
 
+/* Project pages */
+
+.project-page {
+  padding-block: clamp(28px, 4vw, 56px) var(--space-section);
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 clamp(20px, 3vw, 32px);
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.breadcrumbs li + li::before {
+  content: "/";
+  margin-right: 8px;
+  color: var(--line-accent);
+}
+
+.breadcrumbs a:hover {
+  color: var(--pink);
+}
+
+.project-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: start;
+  gap: clamp(24px, 4vw, 56px);
+}
+
+.project-photo {
+  width: 100%;
+  height: auto;
+  max-height: 86dvh;
+  object-fit: contain;
+  background: var(--bg-deep);
+  border: 1px solid var(--line);
+}
+
+.project-copy h1 {
+  margin-block: 14px 20px;
+  font-size: clamp(44px, 6vw, 84px);
+}
+
+.project-copy .view-full {
+  margin-top: 6px;
+}
+
+.project-pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: clamp(40px, 5vw, 64px);
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.project-pager a {
+  display: grid;
+  gap: 4px;
+}
+
+.project-pager a:last-child {
+  text-align: right;
+}
+
+.project-pager span {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-pager strong {
+  font: 800 clamp(22px, 3vw, 32px) / 1.1 var(--font-display);
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.project-pager a:hover strong {
+  color: var(--pink);
+}
+
+/* File upload */
+
+.file-drop {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  padding: 18px;
+  border: 1px dashed var(--line-accent);
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.file-drop.dragging,
+.file-drop:hover,
+.file-drop:focus-within {
+  border-color: var(--pink);
+}
+
+.file-drop input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-drop-title {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.file-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.file-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+  padding: 8px 8px 8px 12px;
+  border: 1px solid var(--line);
+  background: var(--surface-raised);
+  font-size: 13px;
+}
+
+.file-list .file-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-list .file-size {
+  flex: none;
+  color: var(--muted);
+}
+
+.file-remove {
+  flex: none;
+  min-height: 36px;
+  padding: 4px 10px;
+  border: 1px solid var(--line-accent);
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.file-remove:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+
+/* Not found */
+
+.not-found {
+  min-height: 60dvh;
+  display: grid;
+  align-content: center;
+}
+
 /* Breakpoints */
 
 @media (max-width: 900px) {
@@ -995,27 +1138,13 @@ dialog::backdrop {
   }
 
   .split,
-  .contact {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 900px) and (orientation: portrait) {
-  .project-dialog {
-    overflow: auto;
-  }
-
-  .dialog-inner {
+  .contact,
+  .project-layout {
     grid-template-columns: 1fr;
   }
 
-  .dialog-photo {
-    max-height: 50dvh;
-  }
-
-  .dialog-copy {
-    max-height: none;
-    overflow: visible;
+  .project-photo {
+    max-height: 70dvh;
   }
 }
 
